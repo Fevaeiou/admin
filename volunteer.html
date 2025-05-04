@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VirSprout ADMIN | VOLUNTEERS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dropdown.css">
+    <link rel="stylesheet" href="volunteers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="logo.jpeg" alt="VirSprout Logo">
+                <h2>VirSprout <i class="fas fa-seedling"></i></h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-hand-holding-heart"></i> Donations</a>
+                    </li>
+                    <li class="active">
+                        <a href="volunteers.html"><i class="fas fa-users"></i> Volunteers</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-box"></i> Resource Needs</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="resource_needs.html"><i class="fas fa-list"></i> All Resource Needs</a>
+                            </li>
+                            <li>
+                                <a href="add_resource_needs.html"><i class="fas fa-plus"></i> Add Resource Need</a>
+                            </li>
+                        </ul>
+                    </li>                    
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-user-alt"></i> Donors</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="donors.html"><i class="fas fa-list"></i> All Donors</a>
+                            </li>
+                            <li>
+                                <a href="add_donors.html"><i class="fas fa-plus"></i> Add Donor</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-calendar-alt"></i> Events</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="events.html"><i class="fas fa-list"></i> All Events</a>
+                            </li>
+                            <li>
+                                <a href="add_events.html"><i class="fas fa-plus"></i> Add Event</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="messages.html"><i class="fas fa-comment-dots"></i> Messages</a>
+                    </li>
+                    <li>
+                        <a href="notification.html"><i class="fas fa-bell"></i> Notifications</a>
+                    </li>
+                    <li>
+                        <a href="users.html"><i class="far fa-address-book"></i> Users </a>
+                    </li>
+                    <li>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="logout">
+                <a href="#" onclick="logoutUser();"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <script src="logout.js"></script>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search volunteers..." id="volunteer-search">
+                </div>
+                <div class="header-right">
+                    <div class="admin-profile">
+                        <img src="admin.jpeg" alt="Admin Avatar">
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-content">
+                <div class="page-header">
+                    <h1>Volunteers</h1>
+                    <button class="btn-add" id="add-volunteer-btn">
+                        <i class="fas fa-plus"></i> Add Volunteer
+                    </button>
+                </div>
+
+                <div class="volunteer-filters">
+                    <div class="filter-section">
+                        <label for="status-filter">Status:</label>
+                        <select id="status-filter" class="filter-select">
+                            <option value="all">All</option>
+                            <option value="active">Active</option>
+                            <option value="pending">Pending</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                    <div class="filter-section">
+                        <label for="availability-filter">Availability:</label>
+                        <select id="availability-filter" class="filter-select">
+                            <option value="all">Any</option>
+                            <option value="weekends">Weekends</option>
+                            <option value="weekdays">Weekdays</option>
+                            <option value="evenings">Evenings</option>
+                            <option value="morning">Morning</option>
+                        </select>
+                    </div>
+                    <button id="reset-filters" class="btn-reset">
+                        <i class="fas fa-sync"></i> Reset
+                    </button>
+                </div>
+
+                <div class="volunteers-list">
+                    <div class="table-container">
+                        <table id="volunteers-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Hours</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="volunteer-info">
+                                            <img src="teya.jpeg" alt="Volunteer">
+                                            <div>
+                                                <span class="volunteer-name">Alteyah Marree Hausan</span>
+                                                <span class="join-date">Joined: Apr 2, 2025</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>alteyah@example.com</td>
+                                    <td>+63 912 345 6789</td>
+                                    <td>24</td>
+                                    <td><span class="status active">Active</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-view" data-id="1" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn-edit" data-id="1" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn-delete" data-id="1" title="Delete">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="volunteer-info">
+                                            <img src="lloyd.jpeg" alt="Volunteer">
+                                            <div>
+                                                <span class="volunteer-name">John Lloyd Romano</span>
+                                                <span class="join-date">Joined: Mar 15, 2025</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>jlromano@example.com</td>
+                                    <td>+63 923 456 7891</td>
+                                    <td>32</td>
+                                    <td><span class="status active">Active</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-view" data-id="2" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn-edit" data-id="2" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn-delete" data-id="2" title="Delete">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="volunteer-info">
+                                            <img src="feve.jpeg" alt="Volunteer">
+                                            <div>
+                                                <span class="volunteer-name">Meljah Feve Soliva</span>
+                                                <span class="join-date">Joined: Mar 22, 2025</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>meljah.soliva@example.com</td>
+                                    <td>+63 934 567 8912</td>
+                                    <td>18</td>
+                                    <td><span class="status active">Active</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-view" data-id="3" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn-edit" data-id="3" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn-delete" data-id="3" title="Delete">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="volunteer-info">
+                                            <img src="janrey.jpeg" alt="Volunteer">
+                                            <div>
+                                                <span class="volunteer-name">Jan Rey Gorre</span>
+                                                <span class="join-date">Joined: Feb 28, 2025</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>janrey@example.com</td>
+                                    <td>+63 945 678 9123</td>
+                                    <td>42</td>
+                                    <td><span class="status active">Active</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-view" data-id="4" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn-edit" data-id="4" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn-delete" data-id="4" title="Delete">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="pagination">
+                    <button class="pagination-btn prev-btn" disabled>
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <div class="pagination-numbers">
+                        <button class="pagination-number active">1</button>
+                        <button class="pagination-number">2</button>
+                        <button class="pagination-number">3</button>
+                    </div>
+                    <button class="pagination-btn next-btn">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Volunteer Modal -->
+    <div class="modal" id="volunteer-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Volunteer</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="volunteer-form">
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" required>
+                        </div>
+                        <div class="form-group half">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group half">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Availability</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="avail-weekends" value="weekends">
+                                <label for="avail-weekends">Weekends</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="avail-weekdays" value="weekdays">
+                                <label for="avail-weekdays">Weekdays</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="avail-evenings" value="evenings">
+                                <label for="avail-evenings">Evenings</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="avail-morning" value="morning">
+                                <label for="avail-morning">Morning</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Additional Notes</label>
+                        <textarea id="notes"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <select id="status">
+                            <option value="active">Active</option>
+                            <option value="pending" selected>Pending</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="btn-publish">Save Volunteer</button>
+                        <button type="button" class="btn-save" id="cancel-volunteer">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="volunteer-details-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Volunteer Details</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="volunteer-details-content">
+                    <div class="volunteer-profile">
+                        <img src="teya.jpeg" alt="Volunteer" class="volunteer-avatar">
+                        <h3 class="volunteer-full-name">Alteyah Marree Hausan</h3>
+                        <span class="status active">Active</span>
+                    </div>
+
+                    <div class="volunteer-info-grid">
+                        <div class="info-item">
+                            <span class="info-label">Email:</span>
+                            <span class="info-value">alteyah@example.com</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Phone:</span>
+                            <span class="info-value">+63 912 345 6789</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Address:</span>
+                            <span class="info-value">123 Main St, Manila, Philippines</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Joined:</span>
+                            <span class="info-value">April 2, 2025</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Hours Volunteered:</span>
+                            <span class="info-value">24 hours</span>
+                        </div>
+                    </div>
+
+                    <div class="volunteer-skills-section">
+                        <h4>Skills</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag teaching">Teaching</span>
+                            <span class="skill-tag counseling">Counseling</span>
+                        </div>
+                    </div>
+
+                    <div class="volunteer-avail-section">
+                        <h4>Availability</h4>
+                        <div class="avail-list">
+                            <span class="avail-tag">Weekends</span>
+                            <span class="avail-tag">Evenings</span>
+                        </div>
+                    </div>
+
+                    <div class="volunteer-notes-section">
+                        <h4>Notes</h4>
+                        <p>Alteyah is a dedicated volunteer with experience in teaching children. She prefers working with educational programs and has excellent communication skills.</p>
+                    </div>
+
+                    <div class="volunteer-history">
+                        <h4>Volunteer History</h4>
+                        <div class="history-timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-date">Apr 10, 2025</div>
+                                <div class="timeline-content">
+                                    <h5>Weekend Workshop</h5>
+                                    <p>Volunteered as a teacher for 8 hours during the weekend literacy workshop.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">Apr 5, 2025</div>
+                                <div class="timeline-content">
+                                    <h5>Community Outreach</h5>
+                                    <p>Provided counseling services for 6 hours during the community outreach program.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">Apr 2, 2025</div>
+                                <div class="timeline-content">
+                                    <h5>Volunteer Orientation</h5>
+                                    <p>Completed 2 hours of volunteer orientation and training.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="details-buttons">
+                        <button class="btn-edit-details" data-id="1">
+                            <i class="fas fa-edit"></i> Edit Details
+                        </button>
+                        <button class="btn-add-hours" data-id="1">
+                            <i class="fas fa-clock"></i> Add Hours
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="dropdown.js"></script>
+    <script src="volunteers.js"></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VirSprout ADMIN | Settings</title>
+    <link rel="stylesheet" href="settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="logo.jpeg" alt="VirAMJJ Logo">
+                <h2>VirSprout</h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="donors.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-hand-holding-heart"></i> Donations</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-users"></i> Volunteers</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-box"></i> Resource Needs</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="resource_needs.html"><i class="fas fa-list"></i> All Resource Needs</a>
+                            </li>
+                            <li>
+                                <a href="add_resource_needs.html"><i class="fas fa-plus"></i> Add Resource Need</a>
+                            </li>
+                        </ul>
+                    </li>             
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-user-alt"></i> Donors</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="donors.html"><i class="fas fa-list"></i> All Donors</a>
+                            </li>
+                            <li>
+                                <a href="add_donors.html"><i class="fas fa-plus"></i> Add Donor</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-calendar-alt"></i> Events</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="events.html"><i class="fas fa-list"></i> All Events</a>
+                            </li>
+                            <li>
+                                <a href="add_events.html"><i class="fas fa-plus"></i> Add Event</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="messages.html"><i class="fas fa-comment-dots"></i> Messages</a>
+                    </li>
+                    <li>
+                        <a href="notification.html"><i class="fas fa-bell"></i> Notifications</a>
+                    </li>
+                    <li class="active">
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="logout">
+                <a href="#" onclick="logoutUser();"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <script src="logout.js"></script>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="header">
+                <h1>Profile</h1>
+            </div>
+
+            <div class="dashboard-content">
+                <div class="settings-tabs">
+                    <ul>
+                        <li class="active">
+                            <a href="settings.html">Profile</a>
+                        </li>
+                        <li>
+                            <a href="security.html">Security</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="settings-content">
+                    <div class="tab-content active" id="profile">
+                        <div class="settings-card">
+                            <div class="settings-header">
+                                <h2><i class="fas fa-user"></i> Profile</h2>
+                                <p>Manage your personal information</p>
+                            </div>
+
+                            <div class="profile-section">
+                                <div class="profile-avatar">
+                                    <img src="admin.jpeg" alt="Admin Avatar">
+                                    <div class="avatar-overlay">
+                                        <i class="fas fa-camera"></i>
+                                    </div>
+                                </div>
+                                <div class="upload-controls">
+                                    <button class="btn-upload"><i class="fas fa-upload"></i> Upload Photo</button>
+                                    <button class="btn-remove"><i class="fas fa-trash"></i> Remove</button>
+                                </div>
+                            </div>
+
+                            <form class="settings-form">
+                                <div class="form-row">
+                                    <div class="form-group half">
+                                        <label for="first-name">First Name</label>
+                                        <input type="text" id="first-name">
+                                    </div>
+                                    <div class="form-group half">
+                                        <label for="last-name">Last Name</label>
+                                        <input type="text" id="last-name">
+                                    </div>
+                                    <div class="form-group half">
+                                        <label for="last-name">Suffix</label>
+                                        <input type="text" id="suffix">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group half">
+                                        <label for="email">Email Address</label>
+                                        <input type="email" id="email">
+                                    </div>
+                                    <div class="form-group half">
+                                        <label for="phone">Phone Number</label>
+                                        <input type="tel" id="phone">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="role">Role</label>
+                                    <input type="text" id="role" value="Administrator" readonly>
+                                </div>
+                                <div class="form-buttons">
+                                    <button type="submit" class="btn-save-changes">Save Changes</button>
+                                    <button type="reset" class="btn-cancel">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="dropdown.js"></script>
+</body>
+</html>

@@ -1,0 +1,504 @@
+:root {
+    --purple: #9c27b0;
+    --purple-dark: #7b1fa2;
+    --purple-light: #ce93d8;
+}
+
+.edit-donor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.btn-back-to-donors {
+    background-color: var(--gray-100);
+    color: var(--gray-700);
+    border: 1px solid var(--gray-300);
+    border-radius: 5px;
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-back-to-donors i {
+    margin-right: 8px;
+}
+
+.btn-back-to-donors:hover {
+    background-color: var(--gray-200);
+}
+
+.edit-donor-container {
+    display: flex;
+    gap: 30px;
+}
+
+.form-container {
+    flex: 3;
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.tips-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.form-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.form-section h3 {
+    font-size: 1.1rem;
+    color: var(--gray-800);
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.form-group.half {
+    width: calc(50% - 7.5px);
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    color: var(--gray-700);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--gray-300);
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.form-group input[readonly],
+.form-group select[disabled] {
+    background-color: var(--gray-100);
+    cursor: not-allowed;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.current-image-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.current-image-container img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid var(--gray-300);
+}
+
+.btn-remove-image {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: var(--gray-700);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-remove-image:hover {
+    background-color: var(--gray-900);
+}
+
+.file-input-container {
+    display: flex;
+    align-items: center;
+}
+
+.file-input-container input[type="file"] {
+    display: none;
+}
+
+.btn-file-input {
+    background-color: var(--gray-100);
+    border: 1px solid var(--gray-300);
+    color: var(--gray-700);
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-file-input:hover {
+    background-color: var(--gray-200);
+}
+
+.file-name {
+    margin-left: 10px;
+    font-size: 0.85rem;
+    color: var(--gray-600);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.right-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-delete-donor {
+    background-color: rgba(229, 62, 62, 0.1);
+    border: 1px solid rgba(229, 62, 62, 0.3);
+    color: rgb(229, 62, 62);
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-delete-donor:hover {
+    background-color: rgba(229, 62, 62, 0.2);
+    color: rgb(200, 30, 30);
+}
+
+.btn-cancel {
+    background-color: white;
+    border: 1px solid var(--gray-300);
+    color: var(--gray-700);
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cancel:hover {
+    background-color: var(--gray-100);
+}
+
+.btn-save {
+    background-color: var(--primary-blue);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-save:hover {
+    background-color: var(--primary-blue-dark);
+}
+
+.tips-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.tips-card h3 {
+    font-size: 1rem;
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.tips-card h3 i {
+    margin-right: 8px;
+}
+
+.tips-card ul {
+    padding-left: 20px;
+}
+
+.tips-card li {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: var(--gray-700);
+}
+
+.tips-card li:last-child {
+    margin-bottom: 0;
+}
+
+.donor-stats-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.donor-stats-card h3 {
+    font-size: 1rem;
+    color: var(--purple);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.donor-stats-card h3 i {
+    margin-right: 8px;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+}
+
+.stat-label {
+    color: var(--gray-600);
+}
+
+.stat-value {
+    font-weight: 600;
+    color: var(--gray-800);
+}
+
+.donor-engagement-level {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--gray-200);
+}
+
+.donor-engagement-level span {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    margin-bottom: 8px;
+}
+
+.engagement-meter {
+    height: 8px;
+    background-color: var(--gray-200);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.engagement-bar {
+    height: 100%;
+    background-color: var(--accent-green);
+    border-radius: 4px;
+}
+
+.engagement-label {
+    text-align: right;
+    font-weight: 600;
+    color: var(--accent-green);
+}
+
+.donation-history-table-container {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid var(--gray-200);
+    border-radius: 5px;
+}
+
+.donation-history-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.donation-history-table th, 
+.donation-history-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--gray-200);
+    font-size: 0.9rem;
+}
+
+.donation-history-table th {
+    background-color: var(--gray-100);
+    font-weight: 600;
+    color: var(--gray-700);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.donation-history-table tr:hover {
+    background-color: var(--gray-50);
+}
+
+.view-all-link {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--gray-50);
+    border-top: 1px solid var(--gray-200);
+}
+
+.view-all-link a {
+    color: var(--primary-blue);
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.view-all-link a i {
+    margin-left: 5px;
+    font-size: 0.8rem;
+}
+
+.view-all-link a:hover {
+    text-decoration: underline;
+}
+
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
+    border-color: #e53e3e;
+}
+
+.error-message {
+    color: #e53e3e;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1100;
+}
+
+.notification {
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 0.9rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideIn 0.3s ease-out forwards;
+    max-width: 350px;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: 10px;
+    opacity: 0.7;
+}
+
+.notification-close:hover {
+    opacity: 1;
+}
+
+.notification.success { background-color: #4CAF50; }
+.notification.error { background-color: #F44336; }
+.notification.warning { background-color: #FFC107; color: #333; }
+.notification.info { background-color: #2196F3; }
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@media screen and (max-width: 1024px) {
+    .edit-donor-container {
+        flex-direction: column;
+    }
+    
+    .form-container {
+        flex: none;
+    }
+    
+    .tips-container {
+        flex: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .form-group.half {
+        width: 100%;
+    }
+    
+    .edit-donor-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .btn-delete-donor {
+        align-self: flex-start;
+    }
+    
+    .right-actions {
+        width: 100%;
+    }
+}

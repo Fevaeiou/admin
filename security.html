@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VirSprout ADMIN | Settings</title>
+    <link rel="stylesheet" href="security.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="logo.jpeg" alt="VirSprout Logo">
+                <h2>VirSprout</h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-hand-holding-heart"></i> Donations</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-users"></i> Volunteers</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-box"></i> Resource Needs</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="resource_needs.html"><i class="fas fa-list"></i> All Resource Needs</a>
+                            </li>
+                            <li>
+                                <a href="add_resource_needs.html"><i class="fas fa-plus"></i> Add Resource Need</a>
+                            </li>
+                        </ul>
+                    </li>             
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-user-alt"></i> Donors</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="donors.html"><i class="fas fa-list"></i> All Donors</a>
+                            </li>
+                            <li>
+                                <a href="add_donors.html"><i class="fas fa-plus"></i> Add Donor</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-calendar-alt"></i> Events</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="events.html"><i class="fas fa-list"></i> All Events</a>
+                            </li>
+                            <li>
+                                <a href="add_events.html"><i class="fas fa-plus"></i> Add Event</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="messages.html"><i class="fas fa-comment-dots"></i> Messages</a>
+                    </li>
+                    <li>
+                        <a href="notification.html"><i class="fas fa-bell"></i> Notifications</a>
+                    </li>
+                    <li class="active">
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="logout">
+                <a href="#" onclick="logoutUser();"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <script src="logout.js"></script>
+            </div>
+        </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="header">
+                <h1>Security</h1>
+            </div>
+
+            <div class="dashboard-content">
+                <div class="settings-tabs">
+                    <ul>
+                        <li>
+                            <a href="settings.html">Profile</a>
+                        </li>
+                        <li class="active">
+                            <a href="security.html">Security</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tab-content" id="security">
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h2><i class="fas fa-shield-alt"></i> Security Settings</h2>
+                            <p>Manage account security and access controls</p>
+                        </div>
+
+                        <div class="security-settings">
+                            <div class="change-password">
+                                <h3>Change Password</h3>
+                                <form class="settings-form" method="POST" action="security.php">
+                                    <input type="hidden" name="change_password" value="1">
+                                    <div class="form-group">
+                                        <label for="current-password">Current Password</label>
+                                        <input type="password" id="current-password" name="current_password" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="new-password">New Password</label>
+                                        <input type="password" id="new-password" name="new_password" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confirm-password">Confirm New Password</label>
+                                        <input type="password" id="confirm-password" name="confirm_password" required>
+                                    </div>
+                                    <div class="password-requirements">
+                                        <p>Password must:</p>
+                                        <ul>
+                                            <li><i class="fas fa-check-circle"></i> Be at least 8 characters long</li>
+                                            <li><i class="fas fa-check-circle"></i> Include at least one uppercase letter</li>
+                                            <li><i class="fas fa-check-circle"></i> Include at least one number</li>
+                                            <li><i class="fas fa-check-circle"></i> Include at least one special character</li>
+                                        </ul>
+                                    </div>
+                                    <button type="submit" class="btn-save-changes">Update Password</button>
+                                </form>
+                            </div>
+                            <div class="two-factor-auth">
+                                <h3>Two-Factor Authentication</h3>
+                                <div class="notification-option">
+                                    <div class="notification-info">
+                                        <h4>Enable Two-Factor Authentication</h4>
+                                        <p>Add an extra layer of security to your account</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <button type="button" class="btn-setup-2fa">Set Up Two-Factor Authentication</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="dropdown.js"></script>
+</body>
+</html>

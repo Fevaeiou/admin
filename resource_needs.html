@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VirSprout ADMIN | Resource Needs</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="resource_needs.css">
+    <link rel="stylesheet" href="dropdown.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="logo.jpeg" alt="VirSprout Logo">
+                <h2>VirSprout <i class="fas fa-seedling"></i></h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-hand-holding-heart"></i> Donations</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-users"></i> Volunteers</a>
+                    </li>
+                    <li class="active">
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-box"></i> Resource Needs</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="active">
+                                <a href="resource_needs.html"><i class="fas fa-list"></i> All Resource Needs</a>
+                            </li>
+                            <li>
+                                <a href="add_resource_needs.html"><i class="fas fa-plus"></i> Add Resource Need</a>
+                            </li>
+                        </ul>
+                    </li>                    
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-user-alt"></i> Donors</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="donors.html"><i class="fas fa-list"></i> All Donors</a>
+                            </li>
+                            <li>
+                                <a href="add_donors.html"><i class="fas fa-plus"></i> Add Donor</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-calendar-alt"></i> Events</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="events.html"><i class="fas fa-list"></i> All Events</a>
+                            </li>
+                            <li>
+                                <a href="add_events.html"><i class="fas fa-plus"></i> Add Event</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="messages.html"><i class="fas fa-comment-dots"></i> Messages</a>
+                    </li>
+                    <li>
+                        <a href="notification.html"><i class="fas fa-bell"></i> Notifications</a>
+                    </li>
+                    <li>
+                        <a href="users.html"><i class="far fa-address-book"></i> Users </a>
+                    </li>
+                    <li>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="logout">
+                <a href="#" onclick="logoutUser();"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <script src="logout.js"></script>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search needs...">
+                </div>
+                <div class="header-right">
+                    <div class="admin-profile">
+                        <img src="admin.jpeg" alt="Admin Avatar">
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-content">
+                <h1>Resource Needs</h1>
+
+                <div class="resource-needs-list-section">
+                    <div class="section-header">
+                        <h2>Resource Needs List</h2>
+                        <div class="filter-controls">
+                            <select id="filterCategory" class="filter-select">
+                                <option value="">All Categories</option>
+                                <option value="food">Food</option>
+                                <option value="clothing">Clothing</option>
+                                <option value="education">Education</option>
+                                <option value="medical">Medical</option>
+                                <option value="monetary">Monetary</option>
+                                <option value="volunteer">Volunteer Services</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <select id="filterPriority" class="filter-select">
+                                <option value="">All Priorities</option>
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                                <option value="urgent">Urgent</option>
+                            </select>
+                            <select id="filterStatus" class="filter-select">
+                                <option value="">All Statuses</option>
+                                <option value="active">Active</option>
+                                <option value="pending">Pending</option>
+                                <option value="fulfilled">Fulfilled</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table id="needsTable">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Quantity</th>
+                                    <th>Priority</th>
+                                    <th>Status</th>
+                                    <th>Target Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>School Supplies for Children</td>
+                                    <td>Education</td>
+                                    <td>50 sets</td>
+                                    <td><span class="priority-badge high">High</span></td>
+                                    <td><span class="status active">Active</span></td>
+                                    <td>May 15, 2025</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-edit" title="Edit"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-delete" title="Delete"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Food Packs for Families</td>
+                                    <td>Food</td>
+                                    <td>100 packs</td>
+                                    <td><span class="priority-badge urgent">Urgent</span></td>
+                                    <td><span class="status active">Active</span></td>
+                                    <td>May 10, 2025</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-edit" title="Edit"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-delete" title="Delete"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pagination">
+                        <button class="page-nav prev"><i class="fas fa-chevron-left"></i></button>
+                        <div class="page-numbers">
+                            <button class="page-number active">1</button>
+                            <button class="page-number">2</button>
+                            <button class="page-number">3</button>
+                        </div>
+                        <button class="page-nav next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="modal" id="needDetailsModal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Resource Need Details</h2>
+                            <button class="close-modal"><i class="fas fa-times"></i></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="need-details">
+                                <div class="need-detail-header">
+                                    <h3 id="modalNeedTitle">School Supplies for Children</h3>
+                                    <div class="need-meta">
+                                        <span class="priority-badge high" id="modalNeedPriority">High</span>
+                                        <span class="status active" id="modalNeedStatus">Active</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="need-image-container">
+                                    <img src="/api/placeholder/400/250" alt="Need Image" id="modalNeedImage">
+                                </div>
+                                
+                                <div class="need-info-grid">
+                                    <div class="need-info-item">
+                                        <h4>Category</h4>
+                                        <p id="modalNeedCategory">Education</p>
+                                    </div>
+                                    <div class="need-info-item">
+                                        <h4>Quantity</h4>
+                                        <p id="modalNeedQuantity">50 sets</p>
+                                    </div>
+                                    <div class="need-info-item">
+                                        <h4>Target Date</h4>
+                                        <p id="modalNeedDate">May 15, 2025</p>
+                                    </div>
+                                    <div class="need-info-item">
+                                        <h4>Location</h4>
+                                        <p id="modalNeedLocation">Community Center</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="need-description">
+                                    <h4>Description</h4>
+                                    <p id="modalNeedDescription">We need school supplies for 50 underprivileged children in our community. Each set should include notebooks, pens, pencils, rulers, and basic art supplies. These supplies will help ensure that these children have the necessary tools for their education.</p>
+                                </div>
+                                
+                                <div class="need-progress">
+                                    <h4>Fulfillment Progress</h4>
+                                    <div class="progress-container">
+                                        <div class="progress-bar" style="width: 35%;">35%</div>
+                                    </div>
+                                    <p class="progress-stats">18 of 50 sets received</p>
+                                </div>
+                                
+                                <div class="need-contributors">
+                                    <h4>Recent Contributors</h4>
+                                    <div class="contributors-list">
+                                        <div class="contributor">
+                                            <img src="feve.jpeg" alt="Contributor">
+                                            <div class="contributor-info">
+                                                <h5>Meljah Feve Soliva</h5>
+                                                <p>10 sets on Apr 28, 2025</p>
+                                            </div>
+                                        </div>
+                                        <div class="contributor">
+                                            <img src="teya.jpeg" alt="Contributor">
+                                            <div class="contributor-info">
+                                                <h5>Alteyah Marree Hausan</h5>
+                                                <p>8 sets on Apr 25, 2025</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn-edit-modal">Edit Need</button>
+                            <button class="btn-close-modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="dropdown.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the modal functionality
+            const modal = document.getElementById('needDetailsModal');
+            const closeModalBtn = document.querySelector('.close-modal');
+            const closeModalFooterBtn = document.querySelector('.btn-close-modal');
+            const editBtns = document.querySelectorAll('.btn-edit');
+            
+            // Open modal when edit buttons are clicked
+            editBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    modal.style.display = 'flex';
+                });
+            });
+            
+            // Close modal when close button is clicked
+            if (closeModalBtn) {
+                closeModalBtn.addEventListener('click', function() {
+                    modal.style.display = 'none';
+                });
+            }
+            
+            // Close modal when footer close button is clicked
+            if (closeModalFooterBtn) {
+                closeModalFooterBtn.addEventListener('click', function() {
+                    modal.style.display = 'none';
+                });
+            }
+            
+            // Close modal when clicking outside of it
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

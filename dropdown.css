@@ -1,0 +1,36 @@
+.menu ul li .dropdown-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding-left: 20px;
+}
+
+.menu ul li.dropdown-active > a.dropdown-toggle {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-left: 4px solid var(--light-color);
+}
+
+.menu ul li.dropdown-active .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+.dropdown-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dropdown-icon {
+    transition: transform 0.3s ease;
+}
+
+.dropdown-menu li a {
+    padding: 10px 15px 10px 45px;
+    font-size: 0.95rem;
+}
+
+.menu ul li .dropdown-menu li.active a {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid var(--light-color);
+}

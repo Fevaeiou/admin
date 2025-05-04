@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VirSprout ADMIN | EDIT DONOR</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="edit_donors.css">
+    <link rel="stylesheet" href="dropdown.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="logo.jpeg" alt="VirSprout Logo">
+                <h2>VirSprout <i class="fas fa-seedling"></i></h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-hand-holding-heart"></i> Donations</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-users"></i> Volunteers</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-box"></i> Resource Needs</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="resource_needs.html"><i class="fas fa-list"></i> All Resource Needs</a>
+                            </li>
+                            <li>
+                                <a href="add_resource_needs.html"><i class="fas fa-plus"></i> Add Resource Need</a>
+                            </li>
+                        </ul>
+                    </li>             
+                    <li class="active">
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-user-alt"></i> Donors</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="donors.html"><i class="fas fa-list"></i> All Donors</a>
+                            </li>
+                            <li>
+                                <a href="add_donors.html"><i class="fas fa-plus"></i> Add Donor</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-calendar-alt"></i> Events</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="events.html"><i class="fas fa-list"></i> All Events</a>
+                            </li>
+                            <li>
+                                <a href="add_events.html"><i class="fas fa-plus"></i> Add Event</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="messages.html"><i class="fas fa-comment-dots"></i> Messages</a>
+                    </li>
+                    <li>
+                        <a href="notification.html"><i class="fas fa-bell"></i> Notifications</a>
+                    </li>
+                    <li>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="logout">
+                <a href="#" onclick="logoutUser();"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <script src="logout.js"></script>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search donors...">
+                </div>
+                <div class="header-right">
+                    <div class="admin-profile">
+                        <img src="admin.jpeg" alt="Admin Avatar">
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-content">
+                <div class="edit-donor-header">
+                    <h1>Edit Donor</h1>
+                    <a href="donors.html" class="btn-back-to-donors"><i class="fas fa-arrow-left"></i> Back to Donors</a>
+                </div>
+                
+                <div class="edit-donor-container">
+                    <div class="form-container">
+                        <form id="edit-donor-form">
+                            <div class="form-section">
+                                <h3>Basic Information</h3>
+                                <input type="hidden" id="donor-id" value="">
+                                
+                                <div class="form-row">
+                                    <div class="form-group half">
+                                        <label for="donor-type">Donor Type</label>
+                                        <select id="donor-type" required>
+                                            <option value="individual">Individual</option>
+                                            <option value="corporate">Corporate</option>
+                                            <option value="foundation">Foundation</option>
+                                            <option value="organization">Organization</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group half">
+                                        <label for="donor-status">Status</label>
+                                        <select id="donor-status" required>
+                                            <option value="active">Active</option>
+                                            <option value="inactive">Inactive</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div id="individual-fields">
+                                    <div class="form-row">
+                                        <div class="form-group half">
+                                            <label for="first-name">First Name</label>
+                                            <input type="text" id="first-name" required>
+                                        </div>
+                                        <div class="form-group half">
+                                            <label for="last-name">Last Name</label>
+                                            <input type="text" id="last-name" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="org-fields" style="display: none;">
+                                    <div class="form-group">
+                                        <label for="org-name">Organization Name</label>
+                                        <input type="text" id="org-name" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3>Contact Information</h3>
+                                
+                                <div class="form-row">
+                                    <div class="form-group half">
+                                        <label for="email">Email Address</label>
+                                        <input type="email" id="email" required>
+                                    </div>
+                                    <div class="form-group half">
+                                        <label for="phone">Phone Number</label>
+                                        <input type="tel" id="phone">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="address">Address</label>
+                                    <textarea id="address" rows="3"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3>Donation Information</h3>
+                                
+                                <div class="form-row">
+                                    <div class="form-group half">
+                                        <label for="donation-frequency">Donation Frequency</label>
+                                        <select id="donation-frequency">
+                                            <option value="one-time">One-time</option>
+                                            <option value="monthly">Monthly</option>
+                                            <option value="quarterly">Quarterly</option>
+                                            <option value="annually">Annually</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group half">
+                                        <label for="donation-date">First Donation Date</label>
+                                        <input type="date" id="donation-date">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group half">
+                                        <label for="total-donated">Total Donated</label>
+                                        <input type="text" id="total-donated" readonly>
+                                    </div>
+                                    <div class="form-group half">
+                                        <label for="last-donation-date">Last Donation Date</label>
+                                        <input type="date" id="last-donation-date" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group half">
+                                        <label for="preferred-communication">Preferred Communication</label>
+                                        <select id="preferred-communication">
+                                            <option value="email">Email</option>
+                                            <option value="phone">Phone</option>
+                                            <option value="mail">Mail</option>
+                                            <option value="none">No communication</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group half">
+                                        <label for="referred-by">Referred By</label>
+                                        <input type="text" id="referred-by">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3>Additional Information</h3>
+                                <div class="form-group">
+                                    <label>Current Donor Image</label>
+                                    <div class="current-image-container">
+                                        <img id="current-donor-image" src="" alt="Donor Image">
+                                        <button type="button" class="btn-remove-image" title="Remove Image"><i class="fas fa-times"></i></button>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="donor-image">Change Image</label>
+                                    <div class="file-input-container">
+                                        <input type="file" id="donor-image" accept="image/*">
+                                        <button type="button" class="btn-file-input">Choose File</button>
+                                        <span class="file-name">No file chosen</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="notes">Notes</label>
+                                    <textarea id="notes" rows="4"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3>Donation History</h3>
+                                <div class="donation-history-table-container">
+                                    <table class="donation-history-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Amount</th>
+                                                <th>Purpose</th>
+                                                <th>Payment Method</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="donation-history-body">
+                                            <!-- Donation history will be populated here -->
+                                        </tbody>
+                                    </table>
+                                    <div class="view-all-link">
+                                        <a href="#" id="view-all-donations">View all donations <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn-delete-donor">Delete Donor</button>
+                                <div class="right-actions">
+                                    <button type="button" class="btn-cancel">Cancel</button>
+                                    <button type="submit" class="btn-save">Update Donor</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="tips-container">
+                        <div class="tips-card">
+                            <h3><i class="fas fa-lightbulb"></i> Tips</h3>
+                            <ul>
+                                <li>Update contact information to ensure communication reaches the donor</li>
+                                <li>Review donation history to personalize your next outreach</li>
+                                <li>Keep notes updated with recent interactions</li>
+                                <li>If changing status to inactive, add a reason in the notes</li>
+                                <li>Remember to update the donor type if their status changes</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="donor-stats-card">
+                            <h3><i class="fas fa-chart-line"></i> Donor Statistics</h3>
+                            <div class="stat-item">
+                                <span class="stat-label">Donor Since</span>
+                                <span class="stat-value" id="donor-since-date">Jan 15, 2023</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Total Donations</span>
+                                <span class="stat-value" id="total-donations-count">12</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Average Donation</span>
+                                <span class="stat-value" id="average-donation">₱2,500</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Largest Donation</span>
+                                <span class="stat-value" id="largest-donation">₱10,000</span>
+                            </div>
+                            <div class="donor-engagement-level">
+                                <span>Engagement Level</span>
+                                <div class="engagement-meter">
+                                    <div class="engagement-bar" style="width: 75%;"></div>
+                                </div>
+                                <span class="engagement-label">High</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="notification-container"></div>
+
+    <script src="dropdown.js"></script>
+    <script src="edit_donors.js"></script>
+</body>
+</html>

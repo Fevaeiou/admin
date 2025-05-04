@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VirSprout ADMIN | DASHBOARD</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dropdown.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="logo.jpeg" alt="VirSprout Logo">
+                <h2>VirSprout <i class="fas fa-seedling"></i></h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li class="active">
+                        <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-hand-holding-heart"></i> Donations</a>
+                    </li>
+                    <li>
+                        <a href="volunteer.html"><i class="fas fa-users"></i> Volunteers</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-box"></i> Resource Needs</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="resource_needs.html"><i class="fas fa-list"></i> All Resource Needs</a>
+                            </li>
+                            <li>
+                                <a href="add_resource_needs.html"><i class="fas fa-plus"></i> Add Resource Need</a>
+                            </li>
+                        </ul>
+                    </li>                    
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-user-alt"></i> Donors</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="donors.html"><i class="fas fa-list"></i> All Donors</a>
+                            </li>
+                            <li>
+                                <a href="add_donors.html"><i class="fas fa-plus"></i> Add Donor</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-calendar-alt"></i> Events</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="events.html"><i class="fas fa-list"></i> All Events</a>
+                            </li>
+                            <li>
+                                <a href="add_events.html"><i class="fas fa-plus"></i> Add Event</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="messages.html"><i class="fas fa-comment-dots"></i> Messages</a>
+                    </li>
+                    <li>
+                        <a href="notification.html"><i class="fas fa-bell"></i> Notifications</a>
+                    </li>
+                    <li>
+                        <a href="users.html"><i class="far fa-address-book"></i> Users </a>
+                    </li>
+                    <li>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="logout">
+                <a href="#" onclick="logoutUser();"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <script src="logout.js"></script>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="header-right">
+                    <div class="admin-profile">
+                        <img src="admin.jpeg" alt="Admin Avatar">
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-content">
+                <h1>Dashboard</h1>
+
+                <div class="overview-cards">
+                    <div class="card">
+                        <div class="card-icon blue">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>Total Donations</h3>
+                            <p>₱125,850</p>
+                            <span class="trend positive">+12.5% <i class="fas fa-arrow-up"></i></span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon orange">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>Volunteers</h3>
+                            <p>48</p>
+                            <span class="trend positive">+5.2% <i class="fas fa-arrow-up"></i></span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon green">
+                            <i class="fas fa-user-alt"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>Donors</h3>
+                            <p>156</p>
+                            <span class="trend neutral">0% <i class="fas fa-minus"></i></span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon blue">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>Resource Needs</h3>
+                            <p>23</p>
+                            <span class="trend negative">-3.1% <i class="fas fa-arrow-down"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="statistics-row">
+                    <div class="statistics-card">
+                        <div class="section-header">
+                            <h2>Donation Statistics</h2>
+                            <select class="period-select">
+                                <option value="week">This Week</option>
+                                <option value="month" selected>This Month</option>
+                                <option value="year">This Year</option>
+                            </select>
+                        </div>
+                        <div class="chart-container">
+                            <div class="chart-placeholder">
+                                <img src="donation.jpeg" alt="Donation Statistics Chart">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="statistics-card">
+                        <div class="section-header">
+                            <h2>Volunteer Statistics</h2>
+                            <select class="period-select">
+                                <option value="week">This Week</option>
+                                <option value="month" selected>This Month</option>
+                                <option value="year">This Year</option>
+                            </select>
+                        </div>
+                        <div class="chart-container">
+                            <div class="chart-placeholder">
+                                <img src="volunteer.jpeg" alt="Volunteer Statistics Chart">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recent-activities">
+                    <div class="section-header">
+                        <h2>Recent Activities</h2>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    <div class="activities-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <div class="activity-details">
+                                <h4>New Donation Received</h4>
+                                <p>Meljah Feve Soliva donated ₱5,000 for medical supplies</p>
+                                <span class="activity-time">Today, 10:45 AM</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="activity-details">
+                                <h4>New Volunteer Application</h4>
+                                <p>Alteyah Marree Hausan applied for weekend volunteer program</p>
+                                <span class="activity-time">Yesterday, 3:20 PM</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-comment-dots"></i>
+                            </div>
+                            <div class="activity-details">
+                                <h4>New Message Received</h4>
+                                <p>John Lloyd Romano inquired about clothing donation</p>
+                                <span class="activity-time">Yesterday, 1:05 PM</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <div class="activity-details">
+                                <h4>Urgent Need Updated</h4>
+                                <p>Admin updated "Food Supplies for Children" need</p>
+                                <span class="activity-time">Apr 12, 2025, 9:30 AM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="latest-donations">
+                    <div class="section-header">
+                        <h2>Latest Donations</h2>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Donor</th>
+                                    <th>Category</th>
+                                    <th>Amount/Item</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="donor-info">
+                                            <img src="feve.jpeg" alt="Donor">
+                                            <span>Meljah Feve Soliva</span>
+                                        </div>
+                                    </td>
+                                    <td>Monetary</td>
+                                    <td>₱5,000</td>
+                                    <td>Apr 13, 2025</td>
+                                    <td><span class="status completed">Completed</span></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="donor-info">
+                                            <img src="teya.jpeg" alt="Donor">
+                                            <span>Alteyah Marree Hausan</span>
+                                        </div>
+                                    </td>
+                                    <td>Food</td>
+                                    <td>50 kg Rice</td>
+                                    <td>Apr 12, 2025</td>
+                                    <td><span class="status processing">Processing</span></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="donor-info">
+                                            <img src="lloyd.jpeg" alt="Donor">
+                                            <span>John Lloyd Romano</span>
+                                        </div>
+                                    </td>
+                                    <td>Clothing</td>
+                                    <td>25 T-shirts</td>
+                                    <td>Apr 11, 2025</td>
+                                    <td><span class="status completed">Completed</span></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="donor-info">
+                                            <img src="janrey.jpeg" alt="Donor">
+                                            <span>Jan Rey Gorre</span>
+                                        </div>
+                                    </td>
+                                    <td>Medical</td>
+                                    <td>First Aid Kits</td>
+                                    <td>Apr 10, 2025</td>
+                                    <td><span class="status pending">Pending</span></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="dropdown.js"></script>
+</body>
+</html>

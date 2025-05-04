@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VirSprout ADMIN | DONORS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="donors.css">
+    <link rel="stylesheet" href="dropdown.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="logo.jpeg" alt="VirSprout Logo">
+                <h2>VirSprout <i class="fas fa-seedling"></i></h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-hand-holding-heart"></i> Donations</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-users"></i> Volunteers</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-box"></i> Resource Needs</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="resource_needs.html"><i class="fas fa-list"></i> All Resource Needs</a>
+                            </li>
+                            <li>
+                                <a href="add_resource_needs.html"><i class="fas fa-plus"></i> Add Resource Need</a>
+                            </li>
+                        </ul>
+                    </li>             
+                    <li class="active">
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-user-alt"></i> Donors</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="donors.html"><i class="fas fa-list"></i> All Donors</a>
+                            </li>
+                            <li>
+                                <a href="add_donors.html"><i class="fas fa-plus"></i> Add Donor</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-calendar-alt"></i> Events</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="events.html"><i class="fas fa-list"></i> All Events</a>
+                            </li>
+                            <li>
+                                <a href="add_events.html"><i class="fas fa-plus"></i> Add Event</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="messages.html"><i class="fas fa-comment-dots"></i> Messages</a>
+                    </li>
+                    <li>
+                        <a href="notification.html"><i class="fas fa-bell"></i> Notifications</a>
+                    </li>
+                    <li>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="logout">
+                <a href="#" onclick="logoutUser();"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <script src="logout.js"></script>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search donors...">
+                </div>
+                <div class="header-right">
+                    <div class="admin-profile">
+                        <img src="admin.jpeg" alt="Admin Avatar">
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-content">
+                <div class="donors-header">
+                    <h1>Donors</h1>
+                </div>
+                
+                <div class="donor-filters">
+                    <div class="filter-group">
+                        <label> Total Donors </label>
+                        <select id="donor-type-filter">
+                            <option value="all">All Donors</option>
+                            <option value="individual">Monthly</option>
+                            <option value="corporate">Yearly</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Date Range:</label>
+                        <input type="date" id="start-date">
+                        <span>to</span>
+                        <input type="date" id="end-date">
+                    </div>
+                    <button class="btn-filter"><i class="fas fa-filter"></i> Apply</button>
+                    <button class="btn-reset"><i class="fas fa-redo"></i> Reset</button>
+                </div>
+
+                <div class="donors-table-container">
+                    <table class="donors-table">
+                        <thead>
+                            <tr>
+                                <th>Donor Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Total Donations</th>
+                                <th>Last Donation</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="donor-info">
+                                        <img src="feve.jpeg" alt="Donor">
+                                        <div>
+                                            <span class="donor-name">Meljah Feve Soliva</span>
+                                            <span class="donor-since">Donor since Apr 2023</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>meljah@example.com</td>
+                                <td>+63 912 345 6789</td>
+                                <td>₱15,500</td>
+                                <td>Apr 13, 2025</td>
+                                <td><span class="status active">Active</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-view" title="View Details"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-edit" title="Edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-delete" title="Delete"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="donor-info">
+                                        <img src="teya.jpeg" alt="Donor">
+                                        <div>
+                                            <span class="donor-name">Alteyah Marree Hausan</span>
+                                            <span class="donor-since">Donor since Jan 2024</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>alteyah@example.com</td>
+                                <td>+63 917 876 5432</td>
+                                <td>₱22,750</td>
+                                <td>Apr 12, 2025</td>
+                                <td><span class="status active">Active</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-view" title="View Details"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-edit" title="Edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-delete" title="Delete"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="donor-info">
+                                        <img src="lloyd.jpeg" alt="Donor">
+                                        <div>
+                                            <span class="donor-name">John Lloyd Romano</span>
+                                            <span class="donor-since">Donor since Jun 2023</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>johnlloyd@example.com</td>
+                                <td>+63 915 432 1098</td>
+                                <td>₱8,750</td>
+                                <td>Apr 11, 2025</td>
+                                <td><span class="status active">Active</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-view" title="View Details"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-edit" title="Edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-delete" title="Delete"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="donor-info">
+                                        <img src="janrey.jpeg" alt="Donor">
+                                        <div>
+                                            <span class="donor-name">Jan Rey Gorre</span>
+                                            <span class="donor-since">Donor since Mar 2023</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>janrey@example.com</td>
+                                <td>+63 927 654 3210</td>
+                                <td>₱31,200</td>
+                                <td>Apr 10, 2025</td>
+                                <td><span class="status active">Active</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-view" title="View Details"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-edit" title="Edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-delete" title="Delete"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                    <div class="pagination">
+                        <button class="btn-page" disabled><i class="fas fa-chevron-left"></i></button>
+                        <button class="btn-page active">1</button>
+                        <button class="btn-page">2</button>
+                        <button class="btn-page">3</button>
+                        <span class="page-dots">...</span>
+                        <button class="btn-page">10</button>
+                        <button class="btn-page"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dropdown.js"></script>
+    <script src="donors.js"></script>
+</body>
+</html>

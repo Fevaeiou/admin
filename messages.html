@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VirSprout ADMIN | MESSAGES</title>
+    <link rel="stylesheet" href="messages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="logo.jpeg" alt="VirAMJJ Logo">
+                <h2>VirSprout</h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-hand-holding-heart"></i> Donations</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-users"></i> Volunteers</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-box"></i> Resource Needs</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="resource_needs.html"><i class="fas fa-list"></i> All Resource Needs</a>
+                            </li>
+                            <li>
+                                <a href="add_resource_needs.html"><i class="fas fa-plus"></i> Add Resource Need</a>
+                            </li>
+                        </ul>
+                    </li>             
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-user-alt"></i> Donors</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="donors.html"><i class="fas fa-list"></i> All Donors</a>
+                            </li>
+                            <li>
+                                <a href="add_donors.html"><i class="fas fa-plus"></i> Add Donor</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <span><i class="fas fa-calendar-alt"></i> Events</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="events.html"><i class="fas fa-list"></i> All Events</a>
+                            </li>
+                            <li>
+                                <a href="add_events.html"><i class="fas fa-plus"></i> Add Event</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="messages.html"><i class="fas fa-comment-dots"></i> Messages</a>
+                    </li>
+                    <li>
+                        <a href="notification.html"><i class="fas fa-bell"></i> Notifications</a>
+                    </li>
+                    <li>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="logout">
+                <a href="#" onclick="logoutUser();"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <script src="logout.js"></script>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search messages...">
+                </div>
+                <div class="header-right">
+                    <div class="admin-profile">
+                        <img src="admin.jpeg" alt="Admin Avatar">
+                    </div>
+                </div>
+            </div>
+
+            <div class="messages-container">
+                <div class="messages-sidebar">
+                    <div class="messages-header">
+                        <h2>Messages</h2>
+                        <div class="messages-actions">
+                            <button class="btn-compose"><i class="fas fa-pen"></i></button>
+                            <div class="message-filter">
+                                <select>
+                                    <option value="all">All Messages</option>
+                                    <option value="unread">Unread</option>
+                                    <option value="starred">Starred</option>
+                                    <option value="sent">Sent</option>
+                                    <option value="archived">Archived</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="message-list">
+                        <div class="message-item active unread">
+                            <div class="message-avatar">
+                                <img src="lloyd.jpeg" alt="John Lloyd Romano">
+                            </div>
+                            <div class="message-preview">
+                                <div class="message-meta">
+                                    <h4>John Lloyd Romano</h4>
+                                    <span class="message-time">Today</span>
+                                </div>
+                                <p>Hello! I'd like to inquire about making clothing donations. I have several...</p>
+                                <div class="message-indicators">
+                                    <span class="unread-indicator"></span>
+                                    <button class="btn-star"><i class="far fa-star"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="message-item">
+                            <div class="message-avatar">
+                                <img src="feve.jpeg" alt="Meljah Feve Soliva">
+                            </div>
+                            <div class="message-preview">
+                                <div class="message-meta">
+                                    <h4>Meljah Feve Soliva</h4>
+                                    <span class="message-time">Yesterday</span>
+                                </div>
+                                <p>Thank you for confirming receipt of my donation. I'm happy to contribute to...</p>
+                                <div class="message-indicators">
+                                    <button class="btn-star starred"><i class="fas fa-star"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="message-item unread">
+                            <div class="message-avatar">
+                                <img src="janrey.jpeg" alt="Jan Rey Gorre">
+                            </div>
+                            <div class="message-preview">
+                                <div class="message-meta">
+                                    <h4>Jan Rey Gorre</h4>
+                                    <span class="message-time">Yesterday</span>
+                                </div>
+                                <p>I'll be dropping off the first aid kits tomorrow at 2pm if that works for...</p>
+                                <div class="message-indicators">
+                                    <span class="unread-indicator"></span>
+                                    <button class="btn-star"><i class="far fa-star"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="message-item">
+                            <div class="message-avatar">
+                                <img src="teya.jpeg" alt="Alteyah Marree Hausan">
+                            </div>
+                            <div class="message-preview">
+                                <div class="message-meta">
+                                    <h4>Alteyah Marree Hausan</h4>
+                                    <span class="message-time">Apr 19</span>
+                                </div>
+                                <p>I submitted my volunteer application yesterday. Just following up to see if...</p>
+                                <div class="message-indicators">
+                                    <button class="btn-star"><i class="far fa-star"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="message-item">
+                            <div class="message-avatar">
+                                <div class="initial-avatar">RD</div>
+                            </div>
+                            <div class="message-preview">
+                                <div class="message-meta">
+                                    <h4>Ryan Delfin</h4>
+                                    <span class="message-time">Apr 18</span>
+                                </div>
+                                <p>Is there a way for us to organize a fundraising event for the benefit of...</p>
+                                <div class="message-indicators">
+                                    <button class="btn-star"><i class="far fa-star"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="message-item">
+                            <div class="message-avatar">
+                                <div class="initial-avatar">MP</div>
+                            </div>
+                            <div class="message-preview">
+                                <div class="message-meta">
+                                    <h4>Maria Peralta</h4>
+                                    <span class="message-time">Apr 15</span>
+                                </div>
+                                <p>Our school is interested in partnering with your organization for our...</p>
+                                <div class="message-indicators">
+                                    <button class="btn-star starred"><i class="fas fa-star"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="message-item">
+                            <div class="message-avatar">
+                                <div class="initial-avatar">JB</div>
+                            </div>
+                            <div class="message-preview">
+                                <div class="message-meta">
+                                    <h4>Jared Buchanan</h4>
+                                    <span class="message-time">Apr 12</span>
+                                </div>
+                                <p>I represent a local business association and we're looking for charitable...</p>
+                                <div class="message-indicators">
+                                    <button class="btn-star"><i class="far fa-star"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="message-content">
+                    <div class="message-header">
+                        <div class="message-subject">
+                            <h3>Clothing Donation Inquiry</h3>
+                            <span class="message-label">Incoming</span>
+                        </div>
+                        <div class="message-actions">
+                            <button class="btn-action" data-tooltip="Archive"><i class="fas fa-archive"></i></button>
+                            <button class="btn-action" data-tooltip="Delete"><i class="fas fa-trash"></i></button>
+                            <button class="btn-action" data-tooltip="Mark as Unread"><i class="fas fa-envelope"></i></button>
+                            <button class="btn-action" data-tooltip="Flag"><i class="fas fa-flag"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="message-info">
+                        <div class="sender-info">
+                            <img src="lloyd.jpeg" alt="John Lloyd Romano">
+                            <div>
+                                <h4>John Lloyd Romano</h4>
+                                <span>&lt;johnlloyd.romano@email.com&gt;</span>
+                            </div>
+                        </div>
+                        <div class="message-date">
+                            <span>Apr 21, 2025, 10:45 AM</span>
+                            <button class="btn-collapse"><i class="fas fa-chevron-down"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="message-body">
+                        <p>Hello VirAMJJ Team,</p>
+                        <br>
+                        <p>I hope this message finds you well. My name is John Lloyd Romano, and I'm interested in making a clothing donation to your organization.</p>
+                        <br>
+                        <p>I have several items in good condition that I'd like to donate:</p>
+                        <ul>
+                            <li>15 t-shirts (various sizes, mostly adult)</li>
+                            <li>10 pairs of jeans</li>
+                            <li>5 jackets/sweaters</li>
+                            <li>Several children's clothes (ages 5-10)</li>
+                        </ul>
+                        <br>
+                        <p>All items are clean and in good condition. I wanted to inquire about the donation process:</p>
+                        <ol>
+                            <li>Is there a specific drop-off location and time that works best?</li>
+                            <li>Do you need any specific documentation for the donation?</li>
+                            <li>Are there any types of clothing that you particularly need at the moment?</li>
+                        </ol>
+                        <br>
+                        <p>I'm available to drop off these items this week or next, depending on what works best for your team.</p>
+                        <br>
+                        <p>Thank you for the wonderful work you do in our community!</p>
+                        <br>
+                        <p>Best regards,<br>John Lloyd Romano<br>Contact: 0917-555-1234</p>
+                    </div>
+
+                    <div class="reply-section">
+                        <div class="reply-box">
+                            <textarea placeholder="Type your reply here..."></textarea>
+                            <div class="reply-actions">
+                                <div class="formatting-tools">
+                                    <button><i class="fas fa-bold"></i></button>
+                                    <button><i class="fas fa-italic"></i></button>
+                                    <button><i class="fas fa-list"></i></button>
+                                    <button><i class="fas fa-paperclip"></i></button>
+                                </div>
+                                <div class="send-options">
+                                    <button class="btn-send">Send <i class="fas fa-paper-plane"></i></button>
+                                    <button class="btn-save-draft">Save Draft</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="messages.js"></script>
+    <script src="dropdown.js"></script>
+</body>
+</html>

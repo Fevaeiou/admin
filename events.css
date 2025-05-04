@@ -1,0 +1,536 @@
+:root {
+    --primary-color: #4e73df;
+    --primary-blue: #1E88E5;
+    --primary-blue-dark: #1565C0;
+    --primary-blue-light: #64B5F6;
+    --primary-orange: #FF9800;
+    --primary-orange-dark: #F57C00;
+    --primary-orange-light: #FFB74D;
+    --accent-green: #4CAF50;
+    --accent-green-dark: #388E3C;
+    --accent-green-light: #81C784;
+    --light-color: #f8f9fc;
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-400: #ced4da;
+    --gray-500: #adb5bd;
+    --gray-600: #6c757d;
+    --gray-700: #495057;
+    --gray-800: #343a40;
+    --gray-900: #212529;
+    --black: #000000;
+    --danger: #dc3545;
+    --success: #28a745;
+    --warning: #ffc107;
+    --info: #17a2b8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: var(--gray-800);
+    line-height: 1.6;
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 280px;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.logo {
+    padding: 25px 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.logo h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.menu {
+    flex: 1;
+    padding: 20px 0;
+}
+
+.menu ul {
+    list-style: none;
+}
+
+.menu ul li {
+    margin-bottom: 5px;
+}
+
+.menu ul li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.menu ul li a i {
+    margin-right: 15px;
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.menu ul li a:hover, .menu ul li.active a {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-left: 4px solid var(--light-color);
+}
+
+.logout {
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logout a {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.logout a i {
+    margin-right: 15px;
+    font-size: 1.1rem;
+}
+
+.logout a:hover {
+    color: var(--primary-orange);
+}
+
+.main-content {
+    flex: 1;
+    margin-left: 280px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--gray-300);
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 30px;
+    padding: 10px 20px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.search-bar i {
+    color: var(--gray-500);
+    margin-right: 10px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 0.95rem;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.admin-profile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.admin-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.dashboard-content {
+    padding: 20px;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.page-header h1 {
+    font-size: 1.8rem;
+    color: var(--black);
+}
+
+.btn-add {
+    padding: 10px 15px;
+    background-color: var(--primary-blue);
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn-add i {
+    margin-right: 5px;
+}
+
+.btn-add:hover {
+    background-color: var(--primary-blue-dark);
+}
+
+.events-list {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.event-card {
+    display: flex;
+    background-color: var(--gray-100);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.event-image {
+    width: 30%;
+    position: relative;
+    overflow: hidden;
+}
+
+.event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.event-date {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: white;
+    padding: 8px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.date-day {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--gray-800);
+}
+
+.date-month {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--gray-600);
+}
+
+.event-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.event-badge.fundraising {
+    background-color: rgba(255, 152, 0, 0.1);
+    color: var(--primary-orange);
+}
+
+.event-badge.volunteering {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: var(--accent-green);
+}
+
+.event-badge.awareness {
+    background-color: rgba(33, 150, 243, 0.1);
+    color: #2196f3;
+}
+
+.event-badge.training {
+    background-color: rgba(156, 39, 176, 0.1);
+    color: #9c27b0;
+}
+
+.event-badge.community {
+    background-color: rgba(0, 150, 136, 0.1);
+    color: #009688;
+}
+
+.event-badge.virtual {
+    background-color: rgba(3, 169, 244, 0.1);
+    color: #03a9f4;
+}
+
+.event-details {
+    flex: 1;
+    padding: 20px;
+}
+
+.event-title {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--gray-800);
+}
+
+.event-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: var(--gray-600);
+}
+
+.event-meta span {
+    display: flex;
+    align-items: center;
+}
+
+.event-meta span i {
+    margin-right: 5px;
+}
+
+.event-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--gray-700);
+    margin-bottom: 15px;
+}
+
+.event-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-event-update, .btn-event-delete {
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn-event-update {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+}
+
+.btn-event-update:hover {
+    background-color: var(--primary-blue-dark);
+}
+
+.btn-event-delete {
+    background-color: white;
+    color: var(--danger);
+    border: 1px solid var(--danger);
+}
+
+.btn-event-delete:hover {
+    background-color: var(--danger);
+    color: white;
+}
+
+.btn-event-update i, .btn-event-delete i {
+    margin-right: 5px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 30px;
+}
+
+.btn-page {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid var(--gray-300);
+    color: var(--gray-700);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-page.active {
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+.btn-page:hover:not(.active):not([disabled]) {
+    background-color: var(--gray-200);
+}
+
+.btn-page[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.status-badge.upcoming {
+    background-color: rgba(33, 150, 243, 0.1);
+    color: #2196f3;
+}
+
+.status-badge.ongoing {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: var(--accent-green);
+}
+
+.status-badge.completed {
+    background-color: rgba(156, 39, 176, 0.1);
+    color: #9c27b0;
+}
+
+.status-badge.cancelled {
+    background-color: rgba(244, 67, 54, 0.1);
+    color: #f44336;
+}
+
+.event-badge.virtual {
+    background-color: rgba(3, 169, 244, 0.1);
+    color: #03a9f4;
+}
+
+.event-badge.fundraising {
+    background-color: rgba(255, 152, 0, 0.1);
+    color: var(--primary-orange);
+}
+
+.event-badge.volunteering {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: var(--accent-green);
+}
+
+.event-badge.community {
+    background-color: rgba(0, 150, 136, 0.1);
+    color: #009688;
+}
+
+.no-events {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.no-events h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--gray-700);
+}
+
+.no-events a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.no-events a:hover {
+    text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+    .event-card {
+        flex-direction: column;
+    }
+    
+    .event-image {
+        width: 100%;
+        height: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
